@@ -1,3 +1,4 @@
+"use client";
 import { Link } from "@heroui/link";
 import { Snippet } from "@heroui/snippet";
 import { Code } from "@heroui/code";
@@ -6,8 +7,35 @@ import { button as buttonStyles } from "@heroui/theme";
 import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
 import { GithubIcon } from "@/components/icons";
+import { useEffect } from "react";
+import { io } from "socket.io-client";
 
 export default function Home() {
+  // useEffect(() => {
+  //   const token: string | null = localStorage.getItem("token");
+
+
+  //   // Initialize Socket.io connection
+  //   const socket = io("http://localhost:5000", {
+  //     transports: ["websocket", "polling"],
+  //     reconnection: true,
+  //   });
+    
+  //   socket.on("connect", () => {
+  //     console.log("✅ Connected! Socket ID:", socket.id);
+  //   });
+  //   socket.emit('hello', 'world');
+    
+  //   socket.on("connect_error", (error) => {
+  //     console.error("⚠️ Connection Error:", error);
+  //   });
+  //   // Cleanup function to close socket when component unmounts
+  //   return () => {
+  //     socket.disconnect();
+
+  //   };
+  // }, []);
+
   return (
     <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
       <div className="inline-block max-w-xl text-center justify-center">
@@ -20,6 +48,7 @@ export default function Home() {
         <div className={subtitle({ class: "mt-4" })}>
           Beautiful, fast and modern React UI library.
         </div>
+
       </div>
 
       <div className="flex gap-3">
